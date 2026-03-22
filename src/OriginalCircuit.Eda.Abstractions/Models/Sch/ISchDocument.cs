@@ -57,6 +57,25 @@ public interface ISchDocument : IAsyncDisposable
     /// </summary>
     CoordRect Bounds { get; }
 
+    void AddComponent(ISchComponent component);
+    bool RemoveComponent(ISchComponent component);
+    void AddWire(ISchWire wire);
+    bool RemoveWire(ISchWire wire);
+    void AddNetLabel(ISchNetLabel netLabel);
+    bool RemoveNetLabel(ISchNetLabel netLabel);
+    void AddJunction(ISchJunction junction);
+    bool RemoveJunction(ISchJunction junction);
+    void AddPowerObject(ISchPowerObject powerObject);
+    bool RemovePowerObject(ISchPowerObject powerObject);
+    void AddLabel(ISchLabel label);
+    bool RemoveLabel(ISchLabel label);
+    void AddNoConnect(ISchNoConnect noConnect);
+    bool RemoveNoConnect(ISchNoConnect noConnect);
+    void AddBus(ISchBus bus);
+    bool RemoveBus(ISchBus bus);
+    void AddBusEntry(ISchBusEntry busEntry);
+    bool RemoveBusEntry(ISchBusEntry busEntry);
+
     /// <summary>
     /// Saves the document to a file.
     /// </summary>

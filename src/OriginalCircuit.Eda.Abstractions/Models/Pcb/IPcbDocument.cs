@@ -47,6 +47,21 @@ public interface IPcbDocument : IAsyncDisposable
     /// </summary>
     CoordRect Bounds { get; }
 
+    void AddComponent(IPcbComponent component);
+    bool RemoveComponent(IPcbComponent component);
+    void AddPad(IPcbPad pad);
+    bool RemovePad(IPcbPad pad);
+    void AddVia(IPcbVia via);
+    bool RemoveVia(IPcbVia via);
+    void AddTrack(IPcbTrack track);
+    bool RemoveTrack(IPcbTrack track);
+    void AddArc(IPcbArc arc);
+    bool RemoveArc(IPcbArc arc);
+    void AddText(IPcbText text);
+    bool RemoveText(IPcbText text);
+    void AddRegion(IPcbRegion region);
+    bool RemoveRegion(IPcbRegion region);
+
     /// <summary>
     /// Saves the document to a file.
     /// </summary>

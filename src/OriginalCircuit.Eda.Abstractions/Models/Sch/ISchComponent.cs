@@ -79,4 +79,33 @@ public interface ISchComponent : IComponent
     /// All parameter primitives belonging to this component.
     /// </summary>
     IReadOnlyList<ISchParameter> Parameters { get; }
+
+    void AddPin(ISchPin pin);
+    bool RemovePin(ISchPin pin);
+    void AddLine(ISchLine line);
+    bool RemoveLine(ISchLine line);
+    void AddRectangle(ISchRectangle rectangle);
+    bool RemoveRectangle(ISchRectangle rectangle);
+    void AddLabel(ISchLabel label);
+    bool RemoveLabel(ISchLabel label);
+    void AddWire(ISchWire wire);
+    bool RemoveWire(ISchWire wire);
+    void AddPolyline(ISchPolyline polyline);
+    bool RemovePolyline(ISchPolyline polyline);
+    void AddPolygon(ISchPolygon polygon);
+    bool RemovePolygon(ISchPolygon polygon);
+    void AddArc(ISchArc arc);
+    bool RemoveArc(ISchArc arc);
+    void AddCircle(ISchCircle circle);
+    bool RemoveCircle(ISchCircle circle);
+    void AddBezier(ISchBezier bezier);
+    bool RemoveBezier(ISchBezier bezier);
+    void AddNetLabel(ISchNetLabel netLabel);
+    bool RemoveNetLabel(ISchNetLabel netLabel);
+    void AddJunction(ISchJunction junction);
+    bool RemoveJunction(ISchJunction junction);
+    void AddImage(ISchImage image);
+    bool RemoveImage(ISchImage image);
+    void AddParameter(ISchParameter parameter);
+    bool RemoveParameter(ISchParameter parameter);
 }

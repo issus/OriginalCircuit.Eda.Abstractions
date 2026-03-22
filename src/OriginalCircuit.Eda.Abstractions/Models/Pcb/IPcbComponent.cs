@@ -46,4 +46,17 @@ public interface IPcbComponent : IComponent
     /// All regions belonging to this component.
     /// </summary>
     IReadOnlyList<IPcbRegion> Regions { get; }
+
+    void AddPad(IPcbPad pad);
+    bool RemovePad(IPcbPad pad);
+    void AddTrack(IPcbTrack track);
+    bool RemoveTrack(IPcbTrack track);
+    void AddVia(IPcbVia via);
+    bool RemoveVia(IPcbVia via);
+    void AddArc(IPcbArc arc);
+    bool RemoveArc(IPcbArc arc);
+    void AddText(IPcbText text);
+    bool RemoveText(IPcbText text);
+    void AddRegion(IPcbRegion region);
+    bool RemoveRegion(IPcbRegion region);
 }
