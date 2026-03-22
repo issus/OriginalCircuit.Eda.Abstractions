@@ -47,19 +47,53 @@ public interface IPcbDocument : IAsyncDisposable
     /// </summary>
     CoordRect Bounds { get; }
 
+    /// <summary>Adds a component to the document.</summary>
     void AddComponent(IPcbComponent component);
+
+    /// <summary>Removes a component from the document.</summary>
+    /// <returns><c>true</c> if the component was found and removed; otherwise <c>false</c>.</returns>
     bool RemoveComponent(IPcbComponent component);
+
+    /// <summary>Adds a pad to the document.</summary>
     void AddPad(IPcbPad pad);
+
+    /// <summary>Removes a pad from the document.</summary>
+    /// <returns><c>true</c> if the pad was found and removed; otherwise <c>false</c>.</returns>
     bool RemovePad(IPcbPad pad);
+
+    /// <summary>Adds a via to the document.</summary>
     void AddVia(IPcbVia via);
+
+    /// <summary>Removes a via from the document.</summary>
+    /// <returns><c>true</c> if the via was found and removed; otherwise <c>false</c>.</returns>
     bool RemoveVia(IPcbVia via);
+
+    /// <summary>Adds a track to the document.</summary>
     void AddTrack(IPcbTrack track);
+
+    /// <summary>Removes a track from the document.</summary>
+    /// <returns><c>true</c> if the track was found and removed; otherwise <c>false</c>.</returns>
     bool RemoveTrack(IPcbTrack track);
+
+    /// <summary>Adds an arc to the document.</summary>
     void AddArc(IPcbArc arc);
+
+    /// <summary>Removes an arc from the document.</summary>
+    /// <returns><c>true</c> if the arc was found and removed; otherwise <c>false</c>.</returns>
     bool RemoveArc(IPcbArc arc);
+
+    /// <summary>Adds a text object to the document.</summary>
     void AddText(IPcbText text);
+
+    /// <summary>Removes a text object from the document.</summary>
+    /// <returns><c>true</c> if the text was found and removed; otherwise <c>false</c>.</returns>
     bool RemoveText(IPcbText text);
+
+    /// <summary>Adds a region to the document.</summary>
     void AddRegion(IPcbRegion region);
+
+    /// <summary>Removes a region from the document.</summary>
+    /// <returns><c>true</c> if the region was found and removed; otherwise <c>false</c>.</returns>
     bool RemoveRegion(IPcbRegion region);
 
     /// <summary>
