@@ -104,6 +104,15 @@ public interface IRenderContext
     /// <param name="color">Fill color as packed ARGB.</param>
     void FillPolygon(ReadOnlySpan<double> xPoints, ReadOnlySpan<double> yPoints, uint color);
 
+    /// <summary>
+    /// Fills one or more closed contours as a single path using the even-odd fill rule, so inner
+    /// contours (holes) are subtracted from the outer one. Used for regions/pours with cutouts.
+    /// </summary>
+    /// <param name="contours">Contours as (X, Y) coordinate arrays; the first is the outer boundary,
+    /// the rest are holes. Each contour needs at least three points.</param>
+    /// <param name="color">Fill color as packed ARGB.</param>
+    void FillContours(IReadOnlyList<(double[] X, double[] Y)> contours, uint color);
+
     /// <summary>Draws an open polyline through the given points.</summary>
     /// <param name="xPoints">X coordinates of the polyline vertices.</param>
     /// <param name="yPoints">Y coordinates of the polyline vertices.</param>
