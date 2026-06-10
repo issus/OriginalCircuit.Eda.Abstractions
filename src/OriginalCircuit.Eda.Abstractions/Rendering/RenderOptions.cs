@@ -3,6 +3,18 @@ using OriginalCircuit.Eda.Primitives;
 namespace OriginalCircuit.Eda.Rendering;
 
 /// <summary>
+/// Output image format for raster (bitmap) renderers. Ignored by vector (SVG) renderers.
+/// </summary>
+public enum RasterImageFormat
+{
+    /// <summary>PNG — lossless (the default).</summary>
+    Png = 0,
+
+    /// <summary>JPEG — lossy; honours <see cref="RenderOptions.Quality"/>.</summary>
+    Jpeg = 1
+}
+
+/// <summary>
 /// Options for rendering a component or document.
 /// </summary>
 public sealed record RenderOptions
@@ -31,4 +43,14 @@ public sealed record RenderOptions
     /// Scale factor (1.0 = 100%).
     /// </summary>
     public double Scale { get; init; } = 1.0;
+
+    /// <summary>
+    /// Raster output format (PNG or JPEG). Ignored by vector (SVG) renderers.
+    /// </summary>
+    public RasterImageFormat Format { get; init; } = RasterImageFormat.Png;
+
+    /// <summary>
+    /// Encoder quality (1-100) for lossy raster formats such as JPEG. Ignored for PNG.
+    /// </summary>
+    public int Quality { get; init; } = 100;
 }
