@@ -144,12 +144,19 @@ public readonly struct CoordRect : IEquatable<CoordRect>
     /// <returns>The smallest rectangle containing all input rectangles.</returns>
     public static CoordRect Union(IEnumerable<CoordRect> rects)
     {
-        var result = Empty;
+        // Seed from the first rect rather than Empty, and combine with a plain min/max, so a
+        // zero-area rect (a single-point bound at a real location) is included instead of being
+        // dropped as "empty" or pulling the union back to the origin sentinel.
+        CoordRect? result = null;
         foreach (var rect in rects)
         {
-            result = result.Union(rect);
+            result = result is null
+                ? rect
+                : new CoordRect(
+                    new CoordPoint(Coord.Min(result.Value.Min.X, rect.Min.X), Coord.Min(result.Value.Min.Y, rect.Min.Y)),
+                    new CoordPoint(Coord.Max(result.Value.Max.X, rect.Max.X), Coord.Max(result.Value.Max.Y, rect.Max.Y)));
         }
-        return result;
+        return result ?? Empty;
     }
 
     /// <summary>

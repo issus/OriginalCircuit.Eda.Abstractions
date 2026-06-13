@@ -78,9 +78,11 @@ public readonly struct CoordPoint : IEquatable<CoordPoint>
         var sin = Math.Sin(radians);
         var x = X.ToRaw();
         var y = Y.ToRaw();
+        // Round (rather than truncate) and use a checked cast so a rotation that overflows the
+        // coordinate range throws instead of silently wrapping, matching Coord's checked conversions.
         return new CoordPoint(
-            Coord.FromRaw((int)(x * cos - y * sin)),
-            Coord.FromRaw((int)(x * sin + y * cos)));
+            Coord.FromRaw(checked((int)Math.Round(x * cos - y * sin))),
+            Coord.FromRaw(checked((int)Math.Round(x * sin + y * cos))));
     }
 
     /// <summary>
