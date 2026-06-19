@@ -210,6 +210,17 @@ public interface IRenderContext
     /// <summary>Restores the most recently saved graphics state from the stack.</summary>
     void RestoreState();
 
+    /// <summary>
+    /// Begins a named group of drawing operations. Vector backends (SVG) emit an addressable container
+    /// (e.g. <c>&lt;g id="…"&gt;</c>) so the group can be styled or toggled after export; raster backends
+    /// treat it as a plain state save. Pair with <see cref="EndGroup"/>.
+    /// </summary>
+    /// <param name="id">An identifier for the group (used as the element id by vector backends).</param>
+    void BeginGroup(string id);
+
+    /// <summary>Ends the most recently started <see cref="BeginGroup"/>.</summary>
+    void EndGroup();
+
     /// <summary>Applies a translation to the current transform.</summary>
     /// <param name="dx">X translation.</param>
     /// <param name="dy">Y translation.</param>
