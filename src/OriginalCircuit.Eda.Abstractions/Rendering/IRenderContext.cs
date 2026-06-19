@@ -201,6 +201,14 @@ public interface IRenderContext
     /// <param name="h">Clip region height.</param>
     void SetClipRect(double x, double y, double w, double h);
 
+    /// <summary>
+    /// Restricts subsequent drawing to the union of the given closed contours (non-zero winding, so
+    /// overlapping contours union rather than cancel). The clip applies until the enclosing
+    /// <see cref="SaveState"/> is restored via <see cref="RestoreState"/>.
+    /// </summary>
+    /// <param name="contours">Closed contours as (X, Y) coordinate arrays; each needs at least three points.</param>
+    void SetClipPath(IReadOnlyList<(double[] X, double[] Y)> contours);
+
     /// <summary>Resets the clipping region to the full canvas.</summary>
     void ResetClip();
 
